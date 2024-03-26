@@ -34,11 +34,16 @@ class FirestoreViewState extends State<FirestoreView> {
                     children: [
                       Text(user.email),
                       const SizedBox(
-                        width: 10,
+                        width: 5,
                       ),
-                      Text(user.average.toString())
+                      Text(user.average.toStringAsFixed(2)),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text("Subjects: ${user.subjectsArray[0]}")
                     ],
                   ),
+
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -93,13 +98,16 @@ class FirestoreViewState extends State<FirestoreView> {
           ),
           FloatingActionButton(
             child: const Icon(Icons.edit),
-            onPressed: ()  async {
-             await  _controller.computeAverageForUsers();
+            onPressed: () async {
+              await _controller.computeAverageForUsers();
               setState(() {});
-              setState(() {
-              });
+              setState(() {});
             },
-          )
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Text("UsersCount:${_controller.usersCount.toString()}"),
         ],
       ),
     );

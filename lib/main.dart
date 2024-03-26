@@ -1,3 +1,4 @@
+import 'package:firebase_session/view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'filtered_view.dart';
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
         ),
-        home: const FilteredView());
+        home: const FirestoreView());
   }
 }
